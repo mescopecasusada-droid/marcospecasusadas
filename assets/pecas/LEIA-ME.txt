@@ -1,0 +1,36 @@
+FOTOS DAS PEÇAS
+===============
+
+As 6 fotos do carrossel já estão aqui e funcionando:
+
+  motor-renault-kwid-2023.jpg
+  cambio-automatico-hb20s-2019.jpg
+  central-multimidia-voyage-2021.jpg
+  modulo-cambio-compass-2022.jpg
+  farol-direito-creta-2021.jpg
+  alternador-creta-2021.jpg
+
+DE ONDE VIERAM
+--------------
+Foram recuperadas dos prints do site da MESCO, que é onde essas fotos
+estavam publicadas. Recortei o card de cada peça, apaguei a legenda e o
+botão amarelo que ficavam sobrepostos na imagem e reenquadrei em 4:3.
+
+Por virem de print de celular, a resolução é 800x600 — suficiente para o
+tamanho em que aparecem no site, mas não dá para ampliar muito.
+
+PARA TROCAR POR OUTRAS
+----------------------
+Basta substituir o arquivo mantendo EXATAMENTE o mesmo nome. A foto nova
+entra sozinha, sem mexer em código.
+
+Formato ideal: 4:3 (800x600 ou maior), JPG.
+
+Se as peças forem outras, edite a lista "pecas" no topo do arquivo
+assets/js/main.js — lá você define nome, carro, ano e o arquivo da foto.
+
+SE UMA FOTO FALTAR
+------------------
+O carrossel não quebra. Quando o arquivo não existe, aquele card vira um
+bloco tipográfico na cor da marca, com o nome da peça e o veículo. Não
+aparece imagem quebrada nem ícone de erro.
