@@ -1,0 +1,185 @@
+MARCOS PEÇAS USADAS — Landing page
+Av. Senador Nilo de Souza Coelho, 600 — Aguazinha, Olinda/PE
+================================================================
+
+COMO PUBLICAR
+-------------
+1. Suba a pasta inteira para um repositório no GitHub.
+2. Conecte na Vercel. Pronto.
+
+Não tem build, não tem dependência externa, não carrega nada de CDN.
+HTML, CSS e JavaScript puro. As três fontes vêm dentro do projeto.
+
+   index.html        o site
+   pagamento.html    o checkout (só o dono usa — veja mais abaixo)
+   assets/css/       o visual
+   assets/js/        o carrossel, o menu e o resto
+   assets/fonts/     as três fontes
+   assets/img/       logo, fachada, capas e ícones
+   assets/pecas/     as 6 fotos do carrossel
+
+
+O QUE EDITAR NO DIA A DIA
+-------------------------
+Está tudo no topo do assets/js/main.js, no bloco CONFIG:
+
+  whatsapp    o número (hoje 5581981505311)
+  msgPadrao   a mensagem que já vai escrita na conversa
+  pecas       a lista do carrossel (nome, carro, ano, arquivo da foto)
+  categorias  os botões da grade
+  loadMsgs    as frases da tela de carregamento
+
+Trocar o número num lugar só atualiza os 30 links do site.
+
+
+================================================================
+A COPY NÃO PROMETE NADA
+================================================================
+
+Isto é proposital e foi pedido assim. Em nenhum lugar do site
+aparece garantia, nota fiscal, recibo, prazo de troca ou devolução.
+O texto fala só do que é verificável hoje: o pátio existe, fica na
+Aguazinha, tem estoque girando e alguém responde no WhatsApp.
+
+Se mais pra frente a loja quiser assumir algum compromisso — prazo
+de garantia, nota, envio para outras cidades — é só avisar que eu
+acrescento. O inverso (prometer agora e não cumprir) é o que custa
+caro.
+
+
+================================================================
+A IDENTIDADE
+================================================================
+
+Veio toda da fachada. O letreiro é prateado sobre painel preto
+azulado, com a luz quente do fim de tarde batendo nele — então o
+site é escuro com acento âmbar, não claro.
+
+PALETA
+  âmbar      #E8A33D   (botões, destaques, a faixa de estoque)
+  base       #0B0F18   (o preto azulado do painel)
+  grafite    #05080E   (as seções de contraste)
+  prata      #C7D2E2   (a cor do letreiro)
+
+O LOGOTIPO
+  Agora é o arquivo original que você mandou, não mais o recorte da
+  foto da fachada. Ele está em tudo: hero do site, tela de load, capa
+  de compartilhamento, favicon, ícone do iPhone, hero do checkout,
+  selo no meio do QR Code e avatar do carrinho.
+
+  Onde a caixa é redonda (QR, avatar, rodapé) entra uma versão
+  quadrada do logo, recortada acima do "PEÇAS USADAS" — no tamanho de
+  um selo a linha de baixo viraria borrão.
+
+TELA DE LOAD
+  O logo se desenha: primeiro o traço do carro, depois a assinatura
+  "Marcos", e um brilho corre por cima. Cerca de 2,3s, e o site só
+  abre quando termina. Tem um <noscript> e um timeout de segurança
+  para nunca ficar preso na tela.
+
+CARROSSÉIS DE PALAVRAS
+  Três: os argumentos depois do hero (faixa âmbar), os tipos de peça
+  antes do estoque (faixa vazada) e o processo antes da chamada final.
+
+
+================================================================
+PAGAMENTO.HTML — O CHECKOUT
+================================================================
+
+Um arquivo só, sem banco e sem servidor. Dois lados:
+
+SEM nada depois do endereço → PAINEL DO DONO
+  Três abas: Produto → Entrega → Pagamento. Ele cola o código Pix
+  copia-e-cola (ou a linha digitável do boleto) que o banco gerou e
+  a página monta o QR e cria o link.
+
+COM o código no fim do endereço → CHECKOUT DO CLIENTE
+  É o link que vai pelo WhatsApp. O cliente vê a peça e o valor,
+  preenche os dados e chega no QR Code. Tudo viaja dentro do próprio
+  link — nada fica guardado.
+
+A página não cobra nem recebe nada: ela só transforma em QR e em
+link um código que a loja já gerou na conta dela. E não sabe se o
+pagamento caiu — confira sempre no extrato antes de entregar.
+
+O endereço /pagamento.html é público: não está linkado no site, mas
+quem digitar abre o painel. Não guarda dado e não movimenta dinheiro.
+Para esconder, renomeie para algo que ninguém adivinhe e troque as
+duas linhas de og:url e og:image no topo do arquivo.
+
+
+================================================================
+ANTES DE MOSTRAR AO CLIENTE
+================================================================
+
+[ ] DOMÍNIO — está apontando para marcospecasusadas.vercel.app.
+    Ao ligar um domínio próprio, busque esse endereço no index.html
+    e no pagamento.html e troque em todas as ocorrências.
+
+[ ] HORÁRIO DE ATENDIMENTO — está "Horário a confirmar" na seção
+    Onde Estamos e na ficha da empresa.
+
+[ ] FOTOS DAS PEÇAS — as 6 em assets/pecas/ são de outro pátio, só
+    para a demonstração. Antes de publicar de verdade, troque por
+    fotos do estoque da Marcos mantendo os mesmos nomes de arquivo.
+
+Obs.: por decisão, o site não exibe dado de registro da empresa em
+lugar nenhum — nem no rodapé, nem nos dados estruturados.
+
+
+JÁ ESTÁ CERTO
+-------------
+WhatsApp    (81) 98150-5311 → 5581981505311
+Endereço    Av. Senador Nilo de Souza Coelho, 600
+            Aguazinha · Olinda — PE · CEP 53300-380
+
+
+O QUE MUDOU NESTA VERSÃO
+------------------------
+· O LOGO NÃO ESTÁ MAIS ACHATADO. No checkout ele estava dentro de uma
+  caixa redonda de 150x150 — e o logo é deitado (2,3 por 1). Agora a
+  largura manda e a altura segue a proporção. No site era parecido: o
+  HTML declarava uma altura que não era a do arquivo, e o navegador
+  esticava a arte do hero. Conferido: 4 imagens, todas na proporção.
+
+· OS CAMPOS DE PREENCHER ESTAVAM BRANCO SOBRE BRANCO. O fundo deles
+  tinha ficado branco quando a paleta virou escura, e o texto é claro
+  — então o texto pré-escrito quase sumia e o que você digitasse
+  sumiria junto. Os campos agora são escuros. Mesma correção em mais
+  nove peças que tinham sobrado brancas (abas, botão secundário,
+  caixas de código, linha digitável, aviso de entrega).
+
+  O fundo branco do CÓDIGO DE BARRAS foi mantido de propósito: o
+  leitor do banco precisa de barra preta sobre branco.
+
+· OUTROS RESTOS DA PALETA ANTIGA: o valor em destaque era vermelho
+  escuro em cima do fundo escuro, o "1" verde do carrinho tinha texto
+  branco (verde claro com branco em cima some), a mensagem de erro era
+  vermelho-vinho invisível e o botão âmbar ficava vermelho ao passar o
+  mouse. Todos corrigidos.
+
+· A MENSAGEM DO WHATSAPP do carrossel e da grade de categorias ainda
+  começava com o nome da outra loja ("Olá, GSX!"). Agora é "Olá,
+  Marcos Peças Usadas!".
+
+· A linha de garantia que tinha sobrado no checkout saiu — a copy não
+  promete nada em lugar nenhum, no site e no checkout.
+
+· Capa de compartilhamento, favicon e ícone do iPhone refeitos com o
+  logo novo. O checkout também ganhou favicon.
+
+· O arquivo do checkout ficou 16 KB mais leve mesmo com o logo em
+  melhor qualidade embutido.
+
+
+TESTADO
+-------
+  · Sem rolagem horizontal de 320px até 2560px
+  · Funciona com JavaScript desligado
+  · Respeita "reduzir movimento" do sistema
+  · Contraste de texto aprovado em AA, medido no pixel renderizado
+  · 30 links de WhatsApp, todos com o número certo
+  · Checkout testado de ponta a ponta com a internet externa cortada:
+    painel → QR → link → carrinho do cliente → QR, no Pix e no boleto
+  · Retirada na loja não pede endereço (vai direto para o pagamento)
+  · Zero pedido para fora: nada de CDN, nada de Google Fonts
